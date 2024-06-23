@@ -32,7 +32,7 @@ make init-db
 Rota base: `http://0.0.0.0:8080`
 
 
-### Criação de Book
+### Criação de livro
 
 ```bash
 POST /book
@@ -344,6 +344,6 @@ Caso haja muitos clientes acessando a API simultaneamente, pode ocorrer race con
 
 Foi utilizado o banco de dados relacional, PostgreSQL. Por isso, há um relacionamento entre as tabelas Book e Purchase. Sendo assim, um livro só pode ser removido se todas os pedidos que fazem referência a ele forem removidos em cascata. Para evitar a perda de pedidos com a remoção de livros, foi implementado um mecanismo de `soft delete`, dessa forma os livros deletados não estão disponíveis para o usuário mas os pedidos relacionados se mantem disponíveis no banco.
 
-## Logs
+**Logs**
 
 Todas as camadas da API possuem logs indicando a operação sendo realizada e se foi bem sucedida ou não. A mensagem de log está configurada no formato `'%(asctime)s - %(name)s - %(levelname)s - %(funcName)s - %(message)s'`, dessa forma é possível rastrear a hora realizada e a função que criou o log em questão. Todos os logs são direcionados para o terminal da aplicação, além de ficarem registrados no arquivo de caminho `/log/logs.log`.
